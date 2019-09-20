@@ -1,0 +1,6 @@
+在spring中存在两个参数可以提供给我们配置，以修改启动Profile机制，一个是spring.profiles.active,另一个
+是spring.profiles.default。在这两个属性都没有配置的情况下，spring将不会启动Profile机制，这意味着被
+@Profile标注的Bean将不会被spring装配到ioc容器中。spring是先判断是否存在spring.profiles.active配置后，
+再去查找spring.profiles.default配置的，所以spring.profiles.active优先级要大于spring.profiles.default。
+在java项目启动中，我们只需要如下配置就可以启动Profile机制：
+JAVA_OPTS="-Dspring.profiles.active=dev"

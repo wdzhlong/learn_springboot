@@ -1,0 +1,12 @@
+BeanFactory中有isSingleton和isPrototype两个方法。
+其中，isSingleton方法如果返回true，则Bean在Ioc容器中以单例存在，这也是spring ioc容器的默认值。
+如果isPrototype方法返回true,则当我们每次获取Bean的时候，Ioc容器都会创建一个新的Bean,这显示存在很大的不同，
+这便是spring bean的作用域的问题。
+在一般的容器中只会存在Singleton和Prototype两种作用域，Java EE广泛地使用在互联网中，而在Web容器中，则存在
+页面(page),请求(Request)，会话(Session)和应用(Application)的种作用域。对于页面(page),是针对JSP当前页面
+的作用域，所以Spring是无法支持的。为了满足各类的作用域，在Spring的作用域中就存在如下几种类型。
+1.singleton 默认值，单例
+2.prototype 每次从Ioc取出Bean都会产生一个新值，多例
+3.session 一次Http会话
+4.application web工程生命周期一直存在
+5.request web工程单次请求

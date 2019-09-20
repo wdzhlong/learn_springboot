@@ -29,6 +29,7 @@ import org.springframework.stereotype.Service;
  * 如果使用includeFilters，则可以把useDefaultFilters设置为false
  * lazyInit
  * @PropertySource:加载指定属性文件到 Spring 的 Environment 中
+ * @ImportResource：引入外部资源
  */
 @Configuration
 @ComponentScan(basePackages = "com.springboot.learnSpringboot.ioc"
@@ -37,6 +38,7 @@ import org.springframework.stereotype.Service;
                 ,useDefaultFilters = true,lazyInit = false)
 @PropertySource(value = "classpath:jdbc.properties")
 @EnableConfigurationProperties
+@ImportResource(value = "classpath:spring-other.xml")
 public class AppConfig {
 
     @Bean(name = "user",initMethod = "initMethod",destroyMethod = "destroyMethod")
