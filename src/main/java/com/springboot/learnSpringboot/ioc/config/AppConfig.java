@@ -1,10 +1,8 @@
 package com.springboot.learnSpringboot.ioc.config;
 
 import com.springboot.learnSpringboot.ioc.pojo.User;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.FilterType;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.context.annotation.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 
@@ -30,13 +28,15 @@ import org.springframework.stereotype.Service;
  * useDefaultFilters:该属性默认值为 true，也就是说 spring 默认会自动发现被 @Component、@Repository、@Service 和 @Controller 标注的类，并注册进容器中。
  * 如果使用includeFilters，则可以把useDefaultFilters设置为false
  * lazyInit
- *
+ * @PropertySource:加载指定属性文件到 Spring 的 Environment 中
  */
 @Configuration
 @ComponentScan(basePackages = "com.springboot.learnSpringboot.ioc"
                 //,excludeFilters = {@ComponentScan.Filter(type = FilterType.ANNOTATION,value = {Controller.class})}
                 ,includeFilters = {@ComponentScan.Filter(type = FilterType.ANNOTATION,value = {Controller.class})}
                 ,useDefaultFilters = true,lazyInit = false)
+@PropertySource(value = "classpath:jdbc.properties")
+@EnableConfigurationProperties
 public class AppConfig {
 
     @Bean(name = "user",initMethod = "initMethod",destroyMethod = "destroyMethod")

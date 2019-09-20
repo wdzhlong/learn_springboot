@@ -3,6 +3,7 @@ package com.springboot.learnSpringboot.ioc;
 import com.springboot.learnSpringboot.ioc.config.AppConfig;
 import com.springboot.learnSpringboot.ioc.dependencyInjection.BusinessPerson;
 import com.springboot.learnSpringboot.ioc.pojo.User;
+import com.springboot.learnSpringboot.ioc.properties.DataSourceProperties;
 import com.springboot.learnSpringboot.ioc.scan.Cat;
 import com.springboot.learnSpringboot.ioc.scan.Dog;
 import com.springboot.learnSpringboot.ioc.scan.UserController;
@@ -27,6 +28,9 @@ public class IocTest {
         BusinessPerson dog = ioc.getBean(BusinessPerson.class);
         // 测试延迟依赖注入
         UserController userController = ioc.getBean(UserController.class);
+
+        DataSourceProperties dataSourceProperties = ioc.getBean(DataSourceProperties.class);
+        System.out.println(dataSourceProperties.getUrl());
         /*User user = ioc.getBean(User.class);
         Dog dog = ioc.getBean(Dog.class);
         Cat cat = ioc.getBean(Cat.class);
