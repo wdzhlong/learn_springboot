@@ -1,1 +1,20 @@
 (引：spring官方文档)：AOP是一种编程典范，它通过分离横切关注点来增加程序的模块化。
+Spring aop是一种基于方法的AOP,它只能应用于方法上
+AOP术语：
+Join point（连接点）：程序执行期间的某一个点，例如执行方法或处理异常时候的点。在 Spring AOP 中，连接点总是表示方法的执行。
+Advice（通知）：通知是指一个切面在特定的连接点要做的事情。通知分为方法执行前通知，方法执行后通知，环绕通知等。许多 AOP 框架（包括 Spring）都将通知建模为拦截器，在连接点周围维护一系列拦截器（形成拦截器链），对连接点的方法进行增强。
+Pointcut（切点）:一个匹配连接点（Join point）的谓词表达式。通知（Advice）与切点表达式关联，并在切点匹配的任何连接点（Join point）（例如，执行具有特定名称的方法）上运行。切点是匹配连接点（Join point）的表达式的概念，是AOP的核心，并且 Spring 默认使用 AspectJ 作为切入点表达式语言。
+Aspect（切面）：它是一个跨越多个类的模块化的关注点，它是通知（Advice）和切点（Pointcut）合起来的抽象，它定义了一个切点（Pointcut）用来匹配连接点（Join point），也就是需要对需要拦截的那些方法进行定义；它定义了一系列的通知（Advice）用来对拦截到的方法进行增强；
+Target object（目标对象）：被一个或者多个切面（Aspect）通知的对象，也就是需要被 AOP 进行拦截对方法进行增强（使用通知）的对象，也称为被通知的对象。由于在 AOP 里面使用运行时代理，所以目标对象一直是被代理的对象。
+AOP proxy（AOP 代理）：为了实现切面（Aspect）功能使用 AOP 框架创建一个对象，在 Spring 框架里面一个 AOP 代理要么指 JDK 动态代理，要么指 CgLIB 代理。
+Weaving（织入）：是将切面应用到目标对象的过程，这个过程可以是在编译时（例如使用 AspectJ 编译器），类加载时，运行时完成。Spring AOP 和其它纯 Java AOP 框架一样，是在运行时执行植入。
+Advisor：这个概念是从 Spring 1.2的 AOP 支持中提出的，一个 Advisor 相当于一个小型的切面，不同的是它只有一个通知（Advice），Advisor 在事务管理里面会经常遇到，这个后面会讲到。
+
+Advice 的类型:
+before advice, 在 join point 前被执行的 advice. 虽然 before advice 是在 join point 前被执行, 但是它并不能
+够阻止 join point 的执行, 除非发生了异常(即我们在 before advice 代码中, 不能人为地决定是否继续执
+行 join point 中的代码)
+after return advice, 在一个 join point 正常返回后执行的 advice
+after throwing advice, 当一个 join point 抛出异常后执行的 advice
+after(final) advice, 无论一个 join point 是正常退出还是发生了异常, 都会被执行的 advice.
+around advice, 在 join point 前和 joint point 退出后都执行的 advice. 这个是最常用的 advice.
