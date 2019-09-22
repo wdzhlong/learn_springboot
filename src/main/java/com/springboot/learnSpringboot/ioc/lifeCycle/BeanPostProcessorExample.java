@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
  * @modified By:
  * @description:实现BeanPostProcessor后置处理器接口的Bean将对所有的Bean有效
  */
-@Component
+//@Component
 public class BeanPostProcessorExample implements BeanPostProcessor {
 
     @Override

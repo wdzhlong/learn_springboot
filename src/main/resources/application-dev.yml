@@ -1,0 +1,10 @@
+server:
+  port: 8060
+
+spring:
+  datasource:
+    username: root
+    password: root
+    url: jdbc:mysql://localhost:3306/learn_springboot?useUnicode=true&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true&useAffectedRows=true&serverTimezone=UTC
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource

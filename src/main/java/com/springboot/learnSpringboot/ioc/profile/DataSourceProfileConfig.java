@@ -20,15 +20,13 @@ public class DataSourceProfileConfig {
      */
     @Bean
     @Profile("dev")
-    public DataSource devDataSource(){
+    public void devDataSource(){
 
-        return null;
     }
 
     @Bean
     @Profile("test")
-    public DataSource testDataSource(){
+    public void testDataSource(){
 
-        return null;
     }
 }
