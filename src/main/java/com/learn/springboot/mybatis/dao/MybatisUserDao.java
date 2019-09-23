@@ -15,4 +15,8 @@ public interface MybatisUserDao {
     User getUser(Integer id);
 
     Integer insertUser(User user);
+
+    User updateUser(User user);
+
+    int deleteUser(Integer id);
 }

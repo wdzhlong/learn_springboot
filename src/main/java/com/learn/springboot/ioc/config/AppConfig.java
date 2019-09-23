@@ -31,7 +31,7 @@ import org.springframework.stereotype.Controller;
  * @ImportResource：引入外部资源
  */
 @Configuration
-@ComponentScan(basePackages = "com.springboot.learnSpringboot.ioc"
+@ComponentScan(basePackages = "com.learn.springboot.ioc"
                 //,excludeFilters = {@ComponentScan.Filter(type = FilterType.ANNOTATION,value = {Controller.class})}
                 ,includeFilters = {@ComponentScan.Filter(type = FilterType.ANNOTATION,value = {Controller.class})}
                 ,useDefaultFilters = true,lazyInit = false)
