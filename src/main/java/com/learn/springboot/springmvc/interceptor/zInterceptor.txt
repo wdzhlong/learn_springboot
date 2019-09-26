@@ -1,0 +1,24 @@
+public interface HandlerInterceptor {
+    // 处理器执行前方法
+    default boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+        return true;
+    }
+    // 处理器处理后方法
+    default void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, @Nullable ModelAndView modelAndView) throws Exception {
+    }
+    // 处理器完成后方法
+    default void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, @Nullable Exception ex) throws Exception {
+    }
+}
+拦截器流程描述：
+1.执行preHandle方法，该方法返回一个布尔值。如果为false,则结束所有流程;如果是true,则执行下一布。
+2.执行处理器逻辑，它包含控制器的功能
+3.执行postHandle方法。
+4.执行视图解析和视图渲染
+5.执行afterCompletion方法
+多拦截器流程描述：
+对于处理器前方法采用先注册先执行，而处理器后方法和完成方法则是先注册后执行的规则。
+preHandle返回false情况：
+处理器前(preHandle)方法会执行，但是一旦返回 false,则后续的拦截器、处理器和所有拦截器的处理器后(postHandle)
+方法都不会执行。完成方法afterCompletion则不一样，它只会执行返回true的拦截器完成方法，而且是先注册后执行。
+

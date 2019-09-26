@@ -1,0 +1,21 @@
+视图是渲染数据模型展示给用户的组件，在Springmvc中又分为逻辑视图和非逻辑视图。逻辑视图是需要视图解析器(ViewResolver)
+进行进一步定位的，例如控制器中返回一个字符串之所以能找到对应的JSP，就是因为使用了逻辑视图，经由视图解析器的定位后，才
+能找到视图将数据模型展示给用户看。对于非逻辑视频，则并不需要进一步地定位视图的位置，它只需要直接将数据模型渲染出来即可。
+MappingJackson2JsonView就是这种情况。
+
+除了JSON和JSP之外，还有其他类型的视图，如Excel,PDF等。虽然视图具有多样性，但是都实现SpringMVC定义的视图接口VIEW
+public interface View {
+    响应状态
+    String RESPONSE_STATUS_ATTRIBUTE = View.class.getName() + ".responseStatus";
+    路径变量
+    String PATH_VARIABLES = View.class.getName() + ".pathVariables";
+    选择内容类型
+    String SELECTED_CONTENT_TYPE = View.class.getName() + ".selectedContentType";
+    响应类型
+    @Nullable
+    default String getContentType() {
+        return null;
+    }
+    渲染方法
+    void render(@Nullable Map<String, ?> var1, HttpServletRequest var2, HttpServletResponse var3) throws Exception;
+}

@@ -1,0 +1,2 @@
+springmvc提供了验证参数的机制。一方面，它可以支持JSR-303注解验证，在默认情况下Spirng boot会引入关于Hibernate Validator
+机制来支持JSR-303验证规范;另外一方面，因为业务比较复杂，所以需要自定义验证规则。

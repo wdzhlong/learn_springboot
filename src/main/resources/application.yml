@@ -11,7 +11,35 @@ spring:
     type: redis
     ##配置缓存的名称，多个名称使用逗号分隔，以便于缓存注解的引用
     cache-names: redisCache
-
+  mvc:
+    date-format: yyyy-MM-dd HH:mm:ss
+  servlet:
+    multipart:
+      #是否启用springmvc多分部上传功能
+      enabled: true
+      #将文件写入磁盘的阈值。值可以使用后缀“MB”或“KB”来表示兆字节或字节大小
+      file-size-threshold: 0
+      #指定默认上传的文件夹
+      location: E:/
+      #指定单个文件最大大小
+      max-file-size: 1MB
+      #限制所有文件最大大小
+      max-request-size: 10MB
+      #是否延迟多部件文件请求的参数和文件的解析
+      resolve-lazily: false
+  messages:
+    #设置国际化消息是否总是采用格式化，默认false
+    always-use-message-format: false
+    #设置国际化属性名称 如果多个可以使用逗号分隔，默认为 messages
+    basename: messages
+    #设置国际化消息缓存超时秒数，默认为永不过期，如果0表示每次都重新加载
+    cache-duration:
+    #国际化消息编码
+    encoding: UTF-8
+    #如果没有找到特定区域设置的文件，则设置是否返回到系统区域设置
+    fallback-to-system-locale: true
+    #是否使用消息编码作为默认的响应消息，而非抛出NoSuchMessageException异常,只建议在开发阶段使用
+    use-code-as-default-message: false
 mybatis:
   mapper-locations: classpath:mapper/*.xml
   type-aliases-package: com.learn.springboot.mybatis.entity
