@@ -6,6 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.jms.annotation.EnableJms;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -25,6 +27,8 @@ import org.springframework.stereotype.Repository;
         sqlSessionTemplateRef = "sqlSessionTemplate",annotationClass = Repository.class)
 // 启动spring缓存机制
 @EnableCaching
+// 启动定时任务
+@EnableScheduling
 public class SpringbootLearnApplication {
 
     public static void main(String[] args) {

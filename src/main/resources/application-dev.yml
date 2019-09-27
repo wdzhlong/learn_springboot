@@ -20,3 +20,36 @@ spring:
         max-wait: 1000ms
         max-active: 50
         min-idle: 5
+
+  activemq:
+    broker-url: tcp://localhost:61616
+    user: admin
+    password: admin
+    pool:
+      #是否启用连接池
+      enabled: true
+      #连接池最大连接
+      max-connections: 50
+    #packages:
+      #配置ActiveMQ信任的类
+      #trusted: com.learn.springboot.mybatis.entity,jang.lang
+    #配置信息所有包
+    #trust-all: true
+#  rabbitmq:
+#    host: localhost
+#    port: 5672
+#    username: admin
+#    password: 123456
+#    #是否确认发送的消息已经被消费
+#    #意味着发送消息方可以监听发送消息到消费端是否成功，如果成功则它会根据设置的类进行回调
+#    publisher-confirms: true
+  jms:
+    #是否使用发布订阅模式，默认为false,即用的是点对点的模式
+    pub-sub-domain: true
+    template:
+      default-destination: activemq.default.destination
+#自定义配置属性
+rabbitmq:
+  queue:
+    msg: spring-boot-queue-msg
+    user: spring-boot-queue-user

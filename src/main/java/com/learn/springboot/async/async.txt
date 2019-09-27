@@ -1,0 +1,1 @@
+在spring中存在一个AsyncConfigurer接口，它是一个可以配置异步线程池的接口
