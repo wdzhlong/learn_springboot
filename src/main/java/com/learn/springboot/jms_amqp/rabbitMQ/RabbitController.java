@@ -2,8 +2,8 @@ package com.learn.springboot.jms_amqp.rabbitMQ;
 
 import com.learn.springboot.mybatis.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @author: zhenghailong
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @modified By:
  * @description:
  */
-@Controller
+@RestController
 @RequestMapping("/rabbit")
 public class RabbitController {
 

@@ -35,14 +35,15 @@ spring:
       #trusted: com.learn.springboot.mybatis.entity,jang.lang
     #配置信息所有包
     #trust-all: true
-#  rabbitmq:
-#    host: localhost
-#    port: 5672
-#    username: admin
-#    password: 123456
-#    #是否确认发送的消息已经被消费
-#    #意味着发送消息方可以监听发送消息到消费端是否成功，如果成功则它会根据设置的类进行回调
-#    publisher-confirms: true
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: zhl
+    password: zhl
+    virtual-host: /user
+    #是否确认发送的消息已经被消费
+    #意味着发送消息方可以监听发送消息到消费端是否成功，如果成功则它会根据设置的类进行回调
+    publisher-confirms: true
   jms:
     #是否使用发布订阅模式，默认为false,即用的是点对点的模式
     pub-sub-domain: true
