@@ -40,6 +40,11 @@ spring:
     fallback-to-system-locale: true
     #是否使用消息编码作为默认的响应消息，而非抛出NoSuchMessageException异常,只建议在开发阶段使用
     use-code-as-default-message: false
+  mail:
+    host: smtp.qq.com
+    username: 602138991@qq.com
+    password: passaaaa
+    default-encoding: UTF-8
 mybatis:
   mapper-locations: classpath:mapper/*.xml
   type-aliases-package: com.learn.springboot.mybatis.entity
