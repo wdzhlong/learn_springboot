@@ -13,6 +13,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 public class AopTest {
 
     public static void main(String[] args) {
+        String a = "test";
         ApplicationContext ioc = new AnnotationConfigApplicationContext(AopConfig.class);
         String[] names = ioc.getBeanDefinitionNames();
         for (String name : names){
